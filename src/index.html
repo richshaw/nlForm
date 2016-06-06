@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="nlForm">
+    <head>
+        <title>Natural Language Forms</title>
+
+        <link rel="stylesheet" type="text/css" href="./shared/input/nlText.css">
+
+        <!-- build:vendor js/vendor.js -->
+        <script src="./js/angular.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:app js/app.js -->
+        <script src="./app.module.js"></script>
+        <script src="./app.config.js"></script>
+
+        <script src="./shared/input/nlTextDirective.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+          <h2>Welcome</h2>
+          My name is <nl-text ng-model="input.name"></nl-text> the brave adventure cat!
+    </body>
+</html>
+
