@@ -3,7 +3,9 @@
     <head>
         <title>Natural Language Forms</title>
 
+        <link rel="stylesheet" type="text/css" href="./shared/input/nlForm.css">
         <link rel="stylesheet" type="text/css" href="./shared/input/nlText.css">
+        <link rel="stylesheet" type="text/css" href="./shared/input/nlSelect.css">
 
         <!-- build:vendor js/vendor.js -->
         <script src="./js/angular.js"></script>
@@ -13,12 +15,25 @@
         <script src="./app.module.js"></script>
         <script src="./app.config.js"></script>
 
+        <script src="./shared/input/nlFormService.js"></script>
+        <script src="./shared/input/nlFormDirective.js"></script>
         <script src="./shared/input/nlTextDirective.js"></script>
+        <script src="./shared/input/nlSelectDirective.js"></script>
         <!-- endbuild -->
     </head>
     <body>
-          <h2>Welcome</h2>
-          My name is <nl-text ng-model="input.name"></nl-text> the brave adventure cat!
+          <nl-form style="width:800px">
+            <p>What is your name my friend?</p>
+            <p>My name is <nl-text ng-model="input.name"></nl-text> the brave adventure cat!</p>
+            <p>Hello there, {{input.name || 'Adventure Cat'}}.</p>
+            <p>What do you want to do today?</p>
+            <p>Today I want to 
+              <nl-select ng-model="input.todo">
+                    <nl-option value="trash">go north and hangout by the trash cans</nl-option>
+                    <nl-option value="ponder">ponder life the universe and everything</nl-option>
+                    <nl-option value="play">play hide and seek in the air vents</nl-option>
+              </nl-select> and eat cheese.
+          </nl-form>
     </body>
 </html>
 

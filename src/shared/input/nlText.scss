@@ -7,14 +7,6 @@ nl-text, [nl-text] {
     display: inline-block;
     min-width: 150px;
     height: auto;
-    
-    /*
-    min-height: 36px;
-
-    background-color:rgba(232, 234, 246,0.2);
-    
-    line-height: 36px; /* inline block line-height needs to == auto height of inline. No idea how auto height gets to 36px */
-
     /*vertical-align: middle;*/ /* For FF */
     vertical-align: inherit;
 
