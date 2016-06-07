@@ -1,6 +1,5 @@
 nl-select {
 
-    cursor: pointer;
     display: inline-block;
     position: relative;
 
@@ -13,6 +12,7 @@ nl-select {
         border: 0 none;
         font-size:inherit;
         font-family: inherit;
+        cursor: pointer;
 
         &:focus {
             outline: 0;
