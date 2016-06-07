@@ -21,6 +21,12 @@ nl-select {
 
     &.ng-pristine {
         border-color: rgba(0,0,0,0.12);
+
+        &[placeholder] {
+             > button.nl-select-trigger {
+                color: rgba(0,0,0,0.57);
+            }
+        }
     }
 
     &.ng-not-empty.ng-dirty.ng-valid {

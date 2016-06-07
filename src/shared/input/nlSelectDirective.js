@@ -42,8 +42,8 @@
           debounce,
           formElement = $ctrls[1].element,
           listElement = angular.element($element.children()[1]);
-          console.log(listElement);
-
+      
+      /*
       angular.element($window).on('resize',function(){
          $timeout.cancel(debounce);
           debounce = $timeout( function() {
@@ -52,6 +52,7 @@
              }
           }, $attr.debounce || 200);
       });
+*/
 
       angular.element($window).on('click',function(event){
           var a = nlFormService.getActive();
@@ -75,7 +76,7 @@
       
       angular.element($element).on('click',function(event){
         updateClass();
-        updatePosition();
+        //updatePosition();
         nlFormService.setActive($element);
       });
 
@@ -94,10 +95,7 @@
           return;
         }
 
-        var listPosition = getPosition(listElement);
-
-        console.log(listPosition);
-        
+        var listPosition = getPosition(listElement);        
       }
 
       function getPosition(el) {

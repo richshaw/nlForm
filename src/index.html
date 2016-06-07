@@ -3,9 +3,11 @@
     <head>
         <title>Natural Language Forms</title>
 
+        <!-- build:style css/nlForm.css -->
         <link rel="stylesheet" type="text/css" href="./shared/input/nlForm.css">
         <link rel="stylesheet" type="text/css" href="./shared/input/nlText.css">
         <link rel="stylesheet" type="text/css" href="./shared/input/nlSelect.css">
+        <!-- endbuild -->
 
         <!-- build:vendor js/vendor.js -->
         <script src="./js/angular.js"></script>
@@ -23,15 +25,12 @@
     </head>
     <body>
           <nl-form>
-            <p>What is your name my friend?</p>
             <p>My name is <nl-text ng-model="input.name"></nl-text> the brave adventure cat!</p>
-            <p>Hello there, {{input.name || 'Adventure Cat'}}.</p>
-            <p>What do you want to do today?</p>
             <p>Today I want to 
               <nl-select ng-model="input.todo" placeholder="do all the things">
-                    <nl-option value="trash">go north and hangout by the trash cans</nl-option>
-                    <nl-option value="ponder">ponder life the universe and everything</nl-option>
-                    <nl-option value="play">play hide and seek in the air vents</nl-option>
+                    <nl-option value="trash cans">go north and hangout by the trash cans</nl-option>
+                    <nl-option value="thinking tree">ponder life the universe and everything</nl-option>
+                    <nl-option value="air vents">play hide and seek in the air vents</nl-option>
               </nl-select> and eat 
               <nl-select ng-model="input.eat" placeholder="do all the things">
                     <nl-option value="pizza">double cheese, double mouse pizza</nl-option>
@@ -39,6 +38,10 @@
                     <nl-option value="squirrel">roasted garden squirrel</nl-option>
               </nl-select>.
           </nl-form>
+          <hr>
+          <p>
+             Hello there, {{input.name || 'Adventure Cat'}}. We can totally help you find some {{ input.eat.value || 'foodz' }} to eat by the {{ input.todo.value || 'cat box' }}.
+          </p>
     </body>
 </html>
 
