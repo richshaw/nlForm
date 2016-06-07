@@ -32,7 +32,7 @@ gulp.task('css', function() {
 gulp.task('usemin', function () {
   return gulp.src('./src/index.html')
       .pipe(plugins.usemin({
-        css: ['concat', plugins.minifyCss(), plugins.rev()],
+        css: ['concat', plugins.minifyCss()],
         app: [
             plugins.ngAnnotate(),
             plugins.sourcemaps.init({
@@ -40,7 +40,6 @@ gulp.task('usemin', function () {
             }),
             'concat',
             plugins.uglify(),
-            plugins.rev(),
             plugins.sourcemaps.write('./')
         ],
         vendor:[
@@ -49,7 +48,6 @@ gulp.task('usemin', function () {
             }),
             'concat',
             plugins.uglify(),
-            plugins.rev(),
             plugins.sourcemaps.write('./')
         ]
       }))

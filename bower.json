@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "homepage": "https://github.com/richshaw/nlform",
   "description": "",
-  "main": "dist/nlform.js",
+  "main": [
+    "dist/nlForm.js",
+    "dist/nlForm.css"
+  ],
   "authors": [
     "richshaw"
   ],
