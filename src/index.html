@@ -22,17 +22,22 @@
         <!-- endbuild -->
     </head>
     <body>
-          <nl-form style="width:800px">
+          <nl-form>
             <p>What is your name my friend?</p>
             <p>My name is <nl-text ng-model="input.name"></nl-text> the brave adventure cat!</p>
             <p>Hello there, {{input.name || 'Adventure Cat'}}.</p>
             <p>What do you want to do today?</p>
             <p>Today I want to 
-              <nl-select ng-model="input.todo">
+              <nl-select ng-model="input.todo" placeholder="do all the things">
                     <nl-option value="trash">go north and hangout by the trash cans</nl-option>
                     <nl-option value="ponder">ponder life the universe and everything</nl-option>
                     <nl-option value="play">play hide and seek in the air vents</nl-option>
-              </nl-select> and eat cheese.
+              </nl-select> and eat 
+              <nl-select ng-model="input.eat" placeholder="do all the things">
+                    <nl-option value="pizza">double cheese, double mouse pizza</nl-option>
+                    <nl-option value="pasta">duck and salmon pasta bites</nl-option>
+                    <nl-option value="squirrel">roasted garden squirrel</nl-option>
+              </nl-select>.
           </nl-form>
     </body>
 </html>

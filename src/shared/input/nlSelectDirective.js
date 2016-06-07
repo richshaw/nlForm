@@ -17,7 +17,8 @@
       link: nlSelectLink,
       controller: nlSelectController,
       scope: {
-        selected: "=?"
+        selected: "=?",
+        placeholder: "@"
       },
     }
 
@@ -40,12 +41,8 @@
       var OFFSET = 10,
           debounce,
           formElement = $ctrls[1].element,
-          buttonElement = angular.element($element.children()[1]),
-          listElement = angular.element($element.children()[2]);
-
-      $scope.$watch('selected', function(value){
-        updateButton();
-      });
+          listElement = angular.element($element.children()[1]);
+          console.log(listElement);
 
       angular.element($window).on('resize',function(){
          $timeout.cancel(debounce);
@@ -77,17 +74,17 @@
 
       
       angular.element($element).on('click',function(event){
-        updateButton();
+        updateClass();
         updatePosition();
         nlFormService.setActive($element);
       });
 
-      function updateButton() {
+      function updateClass() {
         if($scope.selected !== undefined && $scope.selected.text !== '' && $scope.selected.text !== undefined) {
-            buttonElement.removeClass('active');
+            $element.removeClass('active');
         }
         else {
-            buttonElement.addClass('active'); 
+            $element.addClass('active'); 
         }
       }
 
@@ -97,26 +94,10 @@
           return;
         }
 
-        var formPosition = getPosition(formElement);
-        var elementPosition = getPosition($element);
-        var triggerPosition = getPosition(buttonElement);
         var listPosition = getPosition(listElement);
-        var pointerElement = angular.element(listElement[0].children[0]);
 
-        var position = {
-          top: 0,
-          left: 0
-        }
-
-        position.top = (elementPosition.top - formPosition.top) + elementPosition.height + OFFSET;
-        position.left = formPosition.left;
-
-        //listElement.css({top: position.top + 'px', left: position.left + 'px', width: formPosition.width + 'px'});
-        var l = elementPosition.left + (elementPosition.width / 2) - (listPosition.width /2);
-        l = l < 0 ? 0 : l;
-        listElement.css({left: l + 'px'});
-        //pointerElement.css({left: triggerPosition.left - formPosition.left + (triggerPosition.width / 3 ) + 'px'});
-        pointerElement.css({left: elementPosition.width / 2 + 'px'});
+        console.log(listPosition);
+        
       }
 
       function getPosition(el) {
@@ -243,12 +224,8 @@
     }
   }
 
-  var selectTpl = '<span value="{{ selected.value }}">{{ selected.text }}</span> \
-      <button aria-label="menu" class="nl-select-trigger"> \
-        ? \
-      </button> \
+  var selectTpl = '<button aria-label="menu" class="nl-select-trigger" value="{{ selected.value }}">{{ selected.text || placeholder }}</button> \
       <div class="nl-select-options"> \
-        <span class="pointer">▲</span> \
         <ul ng-transclude> \
         </ul> \
       </div>';
