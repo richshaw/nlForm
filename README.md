@@ -14,7 +14,9 @@ Requires [Angular](https://github.com/angular/angular)
 
 ## Demo
 
-Demo is available on [Codepen](http://codepen.io/richshaw/pen/)
+Demo is available on [Codepen](http://codepen.io/richshaw/pen/ZObvqE)
+
+## Installation
 
 In your index.html file, include the nlForms module and style sheet.
 
@@ -32,7 +34,6 @@ angular.module('myApp', ['nlForm']);
 ```
 
 ## Usage
-
 
 ### Basic markup
 
