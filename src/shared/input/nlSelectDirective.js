@@ -246,10 +246,13 @@
     function nlOptionLink($scope, $element, $attr, $ctrls) {
         angular.element($element).on('click',function(event){
             event.stopPropagation();
+            /*
             var val = {
               value : $scope.value || $element.text(),
               text : $element.text()
             }
+            */
+            var val = $scope.value || $element.text();
             //Set ngModel
             $ctrls[0].$setViewValue(val);
             //Update parent
