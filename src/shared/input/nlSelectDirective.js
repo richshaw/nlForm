@@ -25,10 +25,15 @@
     nlSelectController.$inject('$scope','$element');
 
     function nlSelectController($scope,$element) {
-        this.optionClicked = function() {
+        this.optionClicked = function(text) {
+
           var ngModel = $element.controller('ngModel');
-          if(ngModel.$viewValue != undefined && typeof ngModel.$viewValue === 'object') {
-            $scope.selected = ngModel.$viewValue;
+          if(ngModel.$viewValue != undefined) {
+            $scope.selected = {
+              value : ngModel.$viewValue,
+              text : text
+            };
+
             $scope.$apply();
           }
           nlFormService.setActive($element);
@@ -256,7 +261,7 @@
             //Set ngModel
             $ctrls[0].$setViewValue(val);
             //Update parent
-            $ctrls[1].optionClicked();
+            $ctrls[1].optionClicked($element.text());
         });    
     }
   }
