@@ -1,11 +1,11 @@
 {
-  "name": "Angular Natural Language Forms ",
+  "name": "nlForm",
   "version": "0.0.0",
   "homepage": "https://github.com/richshaw/nlform",
   "description": "",
   "main": [
-    "dist/nlForm.js",
-    "dist/nlForm.css"
+    "dist/js/nlForm.js",
+    "dist/css/nlForm.css"
   ],
   "authors": [
     "richshaw"
