@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html ng-app="nlForm">
+<html ng-app="demo">
     <head>
         <title>Natural Language Forms</title>
         <link rel="stylesheet" href="css/nlForm.css"/>
         <script src="js/vendor.js"></script>
         <script src="js/nlForm.js"></script>
+        <script src="demo.js"></script>
     </head>
-    <body>
+    <body ng-controller="demoController">
           <nl-form>
-            <p>My name is <nl-text ng-model="input.name"></nl-text> the brave adventure cat!</p>
+            <p>My name is <nl-text ng-model="name"></nl-text> the brave adventure cat!</p>
             <p>Today I want to 
-              <nl-select ng-model="input.todo" placeholder="do all the things">
+              <nl-select ng-model="todo" placeholder="do all the things">
                     <nl-option value="trash cans">go north and hangout by the trash cans</nl-option>
                     <nl-option value="thinking tree">ponder life the universe and everything</nl-option>
                     <nl-option value="air vents">play hide and seek in the air vents</nl-option>
               </nl-select> and eat 
-              <nl-select ng-model="input.eat" placeholder="all the things">
+              <nl-select ng-model="eat" placeholder="all the things">
                     <nl-option value="pizza">double cheese, double mouse pizza</nl-option>
                     <nl-option value="pasta">duck and salmon pasta bites</nl-option>
                     <nl-option value="squirrel">roasted garden squirrel</nl-option>
@@ -23,6 +24,7 @@
             </p>
           </nl-form>
           <hr>
+          {{ input.todo }}
           <p>
              Hello there, {{input.name || 'Adventure Cat'}}. We can totally help you find some {{ input.eat.value || 'foodz' }} to eat by the {{ input.todo.value || 'cat box' }}.
           </p>

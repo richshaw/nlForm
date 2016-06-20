@@ -16,7 +16,7 @@ nl-text, [nl-text] {
         display: inline;
     }
 
-    &:focus {
+    &:focus, &.ng-not-empty.ng-dirty.ng-valid {
        border-bottom-color: rgb(76,175,80); 
        outline: none;
     }

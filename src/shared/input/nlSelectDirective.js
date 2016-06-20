@@ -6,9 +6,9 @@
   .directive('nlSelect', nlSelect)
   .directive('nlOption', nlOption);
 
-  nlSelect.$inject = ['$window','nlFormService','$interpolate','$timeout'];
+  nlSelect.$inject = ['$window','nlFormService','$interpolate','$timeout','$parse'];
 
-  function nlSelect($window, nlFormService, $interpolate, $timeout) {
+  function nlSelect($window, nlFormService, $interpolate, $timeout, $parse) {
     return {
       restrict:'E',
       require: ['ngModel','^^nlForm'],
@@ -43,22 +43,28 @@
 
     function nlSelectLink($scope, $element, $attr, $ctrls) {
 
-      var OFFSET = 10,
-          debounce,
-          formElement = $ctrls[1].element,
-          listElement = angular.element($element.children()[1]);
-      
-      /*
-      angular.element($window).on('resize',function(){
-         $timeout.cancel(debounce);
-          debounce = $timeout( function() {
-             if($element.hasClass('active')) {
-              updatePosition();
-             }
-          }, $attr.debounce || 200);
-      });
-*/
+      //On first digest get any ngModel values from controller scope
+      $timeout(function() {
+        if($ctrls[0].$viewValue) {
+          var options = $element.find('li');
+          var attribute = 'value';
+          var value = $ctrls[0].$viewValue;
 
+          for (var i = 0; i < options.length; i++)       {
+            if (options[i].getAttribute(attribute) == value) { 
+              $scope.selected = {
+                value : value,
+                text : angular.element(options[i]).text()
+              };
+              $scope.$apply();
+              $ctrls[0].$setDirty();
+            }
+          }
+        }
+      });
+
+      var listElement = angular.element($element.children()[1]);
+      
       angular.element($window).on('click',function(event){
           var a = nlFormService.getActive();
           // Is current element the active one?
@@ -78,7 +84,6 @@
               return !!c; 
       }
 
-      
       angular.element($element).on('click',function(event){
         updateClass();
         //updatePosition();

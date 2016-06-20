@@ -49,6 +49,9 @@
 
             ngModel.$render = function() {
                 $element.html(ngModel.$viewValue || "");
+                if(ngModel.$viewValue) {
+                    ngModel.$setDirty();
+                }
             };
 
             $element.bind("blur keyup change", function() {
