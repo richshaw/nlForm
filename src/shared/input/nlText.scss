@@ -5,8 +5,9 @@ nl-text, [nl-text] {
     display: inline-block;
     min-width: 150px;
     height: auto;
-    /*vertical-align: middle;*/ /* For FF */
-    vertical-align: inherit;
+    min-height: 1rem;
+    vertical-align: middle; /* For FF */
+    /*vertical-align: inherit;*/
 
     &.ng-not-empty {
         min-width: 50px;
