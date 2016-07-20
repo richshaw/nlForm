@@ -5,8 +5,12 @@ nl-text, [nl-text] {
     display: inline-block;
     min-width: 150px;
     height: auto;
-    /*vertical-align: middle;*/ /* For FF */
+    vertical-align: middle; /* For FF */
     vertical-align: inherit;
+
+    &:before {
+        content: "\feff ";
+    }
 
     &.ng-not-empty {
         min-width: 50px;
